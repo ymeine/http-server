@@ -10,7 +10,7 @@ If you don't know anything about this project, please refer the the [introductio
 * [`.gitignore`](./.gitignore): Git related file
 * [`LICENSE`](./LICENSE): License of the project
 * [`package.json`](./package.json): npm package definition
-* [`src`](./): sources of the project
+* [`src`](./): sources of the project. Since the library is a module in itself, it is put inside a `node_modules` folder, for `require` along others, but we can't put this folder here since there is one for 3rd party node modules.
 * `node_modules`: 3rd party libraries installed through npm
 
 # Versioning
@@ -18,9 +18,3 @@ If you don't know anything about this project, please refer the the [introductio
 To ignore:
 
 * `node_modules`: generated from [`package.json`](./package.json)
-
-# Contribute
-
-## Development
-
-For a sort of backlog, see [issues](https://github.com/ymeine/oop/issues) tagged with `todo`.
