@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Http Server : A standard HTTP server, centered on the concept of routes." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Http Server</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/ymeine/http-server">View on GitHub</a>
+
+          <h1 id="project_title">Http Server</h1>
+          <h2 id="project_tagline">A standard HTTP server, centered on the concept of routes.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/ymeine/http-server/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/ymeine/http-server/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <p>Want to create a simple HTTP server but don't wanna mess with figuring out how to perform a connection? How to add routes? How to create such routes?</p>
+
+<p>Just wanna focus on the feature you provide through this server and now how you built it?</p>
+
+<p>This library is for you.</p>
+
+<p>With a flexible and rich API created thanks to the <a href="http://ymeine.github.io/oop/">OOP</a> library, you will just have to pass configuration object to the server, along with a list of routes, and just ask it to start!</p>
+
+<p>There are multiple ways to create routes, with some standard behaviors implemented. One of the most important one is an RPC route: it is able to handle <a href="http://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a>, and uses JSON for that.</p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<div class="highlight"><pre>npm install git+https://github.com/ymeine/http-server
+</pre></div>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Example in <a href="http://livescript.net/">LiveScript</a>: </p>
+
+<div class="highlight"><pre><span class="nx">require</span><span class="o">!</span> <span class="p">{</span>
+    <span class="nv">server: </span><span class="s">'http-server'</span>
+<span class="p">}</span>
+
+<span class="p">{</span><span class="nx">run</span><span class="p">}</span> <span class="o">=</span> <span class="nx">server</span>
+
+<span class="nv">options = </span><span class="p">{</span>
+    <span class="nv">port: </span><span class="mi">8080</span> <span class="c1"># default port, use another one if busy</span>
+    <span class="o">-</span><span class="nx">log</span> <span class="c1"># we don't use a logger</span>
+<span class="p">}</span>
+
+<span class="nv">routes = </span><span class="p">[</span>
+    <span class="c1"># Standard simple routes</span>
+    <span class="s">'ping'</span>
+    <span class="s">'shutdown'</span>
+
+    <span class="c1"># Standard complex routes: here RPC</span>
+    <span class="p">{</span>
+        <span class="nv">type: </span><span class="s">'rpc'</span>
+        <span class="nv">modules: </span><span class="p">{</span>
+             <span class="s">'mod1'</span><span class="o">:</span> <span class="nx">require</span><span class="p">(</span><span class="s">'path1'</span><span class="p">)</span>
+             <span class="s">'mod2'</span><span class="o">:</span> <span class="p">{</span>
+                 <span class="nv">someMethod2: </span><span class="nf">-&gt;</span> <span class="nx">it</span>
+             <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="nx">run</span> <span class="nx">routes</span><span class="p">,</span> <span class="nx">options</span>
+</pre></div>
+
+<p>A server on port 8080 will run and respond to routes: </p>
+
+<ul>
+<li>
+<code>GET /ping</code> returns <code>200</code>
+</li>
+<li>
+<code>GET /shutdown</code> shuts the server down</li>
+<li>
+<code>POST /rpc</code> with <code>{"module": "mod1", method: "someMethod"}</code> returns the result of the method</li>
+<li>
+<code>POST /rpc</code> with <code>{"module": "mod2", method: "someMethod2", argument: "arg"}</code> returns <code>"arg"</code>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Http Server maintained by <a href="https://github.com/ymeine">ymeine</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
