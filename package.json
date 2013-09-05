@@ -1,0 +1,63 @@
+{
+	"name": "http-server",
+	"version": "0.9.0",
+	"keywords": [
+		"http",
+		"server",
+		"rpc",
+		"network",
+		"net"
+	],
+
+
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ymeine/http-server.git"
+	},
+
+	"url": "http://ymeine.github.io/http-server",
+	"bugs": "https://github.com/ymeine/http-server/issues",
+
+
+	"contributors": [
+		{
+			"name": "Yannick Meine",
+			"email": "yannick.meine@gmail.com",
+			"url": "http://ymeine.github.io"
+		}
+	],
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://opensource.org/licenses/mit-license.php"
+		}
+	],
+
+
+
+	"main": "src/node_modules",
+	"scripts": {},
+	"bin": {},
+
+
+
+	"preferGlobal": false,
+	"private": false,
+
+
+	"engineStrict": false,
+	"engines": {
+		"node": "*"
+	},
+	"dependencies": {
+		"lodash": "*",
+		"prelude-ls": "*",
+
+		"zappajs": "*",
+		"portscanner": "*",
+
+		"oop": "git+https://github.com/ymeine/oop",
+
+		"LiveScript": "1.1.1"
+	}
+}
