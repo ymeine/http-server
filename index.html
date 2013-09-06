@@ -16,14 +16,14 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ymeine/http-server">View on GitHub</a>
+          <a id="forkme_banner" href="https://github.com/Kykstudio/http-server">View on GitHub</a>
 
           <h1 id="project_title">Http Server</h1>
           <h2 id="project_tagline">A standard HTTP server, centered on the concept of routes.</h2>
 
             <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/ymeine/http-server/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/ymeine/http-server/tarball/master">Download this project as a tar.gz file</a>
+              <a class="zip_download_link" href="https://github.com/Kykstudio/http-server/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/Kykstudio/http-server/tarball/master">Download this project as a tar.gz file</a>
             </section>
         </header>
     </div>
@@ -68,7 +68,8 @@
     <span class="s">'ping'</span>
     <span class="s">'shutdown'</span>
 
-    <span class="c1"># Standard complex routes: here RPC</span>
+    <span class="c1"># Standard complex routes</span>
+    <span class="c1"># -- RPC</span>
     <span class="p">{</span>
         <span class="nv">type: </span><span class="s">'rpc'</span>
         <span class="nv">modules: </span><span class="p">{</span>
@@ -77,6 +78,20 @@
                  <span class="nv">someMethod2: </span><span class="nf">-&gt;</span> <span class="nx">it</span>
              <span class="p">}</span>
         <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Custom routes</span>
+    <span class="c1"># -- Shorthand for the handler: returns a simple status</span>
+    <span class="c1"># -- Default HTTP method id GET</span>
+    <span class="p">{</span>
+        <span class="nv">url: </span><span class="s">'some/path'</span>
+        <span class="nv">status: </span><span class="mi">501</span>
+    <span class="p">}</span>
+
+    <span class="p">{</span>
+        <span class="nv">type: </span><span class="s">'post'</span>
+        <span class="nv">url: </span><span class="s">'data/update'</span>
+        <span class="nv">handler: </span><span class="nf">-&gt;</span> <span class="nx">@send</span> <span class="mi">501</span>
     <span class="p">}</span>
 <span class="p">]</span>
 
@@ -87,15 +102,20 @@
 
 <ul>
 <li>
-<code>GET /ping</code> returns <code>200</code>
+<code>GET /ping</code> returns status <code>200</code>
 </li>
 <li>
 <code>GET /shutdown</code> shuts the server down</li>
 <li>
 <code>POST /rpc</code> with <code>{"module": "mod1", method: "someMethod"}</code> returns the result of the method</li>
 <li>
-<code>POST /rpc</code> with <code>{"module": "mod2", method: "someMethod2", argument: "arg"}</code> returns <code>"arg"</code>
+<code>POST /rpc</code> with <code>{"module": "mod2", method: "someMethod2", argument: "arg"}</code> returns data <code>"arg"</code>
 </li>
+<li>
+<code>GET /some/path</code> returns status <code>501</code>
+</li>
+<li>
+<code>POST /data/update</code> returns status <code>501</code> too</li>
 </ul>
       </section>
     </div>
@@ -103,7 +123,7 @@
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Http Server maintained by <a href="https://github.com/ymeine">ymeine</a></p>
+        <p class="copyright">Http Server maintained by <a href="https://github.com/Kykstudio">Kykstudio</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
