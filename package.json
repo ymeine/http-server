@@ -9,55 +9,55 @@
 		"net"
 	],
 
+	"homepage": "http://Kykstudio.github.io/http-server",
+	"bugs": "https://github.com/Kykstudio/http-server/issues",
+
+	"license": "MIT",
+
+	"author": {
+		"name": "Yannick Meine",
+		"email": "yannick.meine@gmail.com",
+		"url": "http://ymeine.github.io"
+	},
 
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/ymeine/http-server.git"
+		"url": "https://github.com/Kykstudio/http-server.git"
 	},
 
-	"url": "http://ymeine.github.io/http-server",
-	"bugs": "https://github.com/ymeine/http-server/issues",
 
 
-	"contributors": [
-		{
-			"name": "Yannick Meine",
-			"email": "yannick.meine@gmail.com",
-			"url": "http://ymeine.github.io"
-		}
-	],
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://opensource.org/licenses/mit-license.php"
-		}
-	],
+	"main": "src/node_modules/index",
 
-
-
-	"main": "src/node_modules",
-	"scripts": {},
-	"bin": {},
+	"directories": {
+		"lib": "./src",
+		"doc": "./doc",
+		"bin": "./bin"
+	},
 
 
 
 	"preferGlobal": false,
-	"private": false,
+	"private": true,
 
 
 	"engineStrict": false,
 	"engines": {
-		"node": "*"
+		"node": "*",
+		"npm": "*"
+	},
+	"devDependencies": {
+		"tester": "git+https://github.com/ymeine/tester#version/cutting-edge"
 	},
 	"dependencies": {
+		"LiveScript": "1.1.1",
+
+		"oop": "git+https://github.com/ymeine/oop#version/latest",
+
 		"lodash": "*",
 		"prelude-ls": "*",
 
 		"zappajs": "*",
-		"portscanner": "*",
-
-		"oop": "git+https://github.com/ymeine/oop",
-
-		"LiveScript": "1.1.1"
+		"portscanner": "*"
 	}
 }
